@@ -17,11 +17,7 @@ const configuredOrigins =
 		.map((origin) => origin.trim())
 		.filter(Boolean) ?? [];
 
-const allowedOrigins = new Set([
-	'http://localhost:5173',
-	'http://127.0.0.1:5173',
-	...configuredOrigins,
-]);
+const allowedOrigins = new Set(['https://fatco-six.vercel.app', ...configuredOrigins]);
 
 app.use(
 	cors({ origin: (origin, callback) => callback(null, !origin || allowedOrigins.has(origin)) }),
